@@ -1,1 +1,5 @@
 site_name: H3r1CH
+site_url: https://h3r1ch.github.io/
+nav:
+    - Home: index.md
+
