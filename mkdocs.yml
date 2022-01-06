@@ -3,4 +3,5 @@ site_url: https://h3r1ch.github.io/
 nav:
     - Home: index.md
     - About: about.md
-
+theme:
+  name: material
