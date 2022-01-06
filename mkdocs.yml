@@ -1,7 +1,48 @@
 site_name: H3r1CH
 site_url: https://h3r1ch.github.io/
+repo_url: https://github.com/H3r1CH/H3r1CH.github.io
+repo_name: H3r1CH/H3r1CH.github.io
+
 nav:
     - Home: index.md
     - About: about.md
+    - Getting started:
+      - Installation: install.md
+      - Test: test.md
+      - Changelog:
+        - changelog/index.md
+        - subheader: sub.md
+    - Writeups:
+      - writeups/index.md
+      - HackTheBox:
+        - writeups/htb/index.md
+        - m1: writeups/htb/machine1.md
+        - m2: writeups/htb/machine2.md
+        - m3: writeups/htb/machine3.md
+      - TryHackMe: 
+        - writeups/thm/index.md
+    - Blog: blog/index.md
 theme:
   name: material
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate 
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/H3r1CH_
+      #name: H3r1CH on Twitter
+    - icon: fontawesome/brands/github
+      link: https://github.com/H3r1CH
