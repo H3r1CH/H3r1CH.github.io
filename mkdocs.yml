@@ -6,22 +6,16 @@ repo_name: H3r1CH/H3r1CH.github.io
 nav:
     - Home: index.md
     - About: about.md
-    - Getting started:
-      - Installation: install.md
-      - Test: test.md
-      - Changelog:
-        - changelog/index.md
-        - subheader: sub.md
+    - Blog: blog/index.md
+    - Notes: notes/index.md
     - Writeups:
       - writeups/index.md
       - HackTheBox:
         - writeups/htb/index.md
-        - m1: writeups/htb/machine1.md
-        - m2: writeups/htb/machine2.md
-        - m3: writeups/htb/machine3.md
+        - Previse: writeups/htb/previse.md
       - TryHackMe: 
         - writeups/thm/index.md
-    - Blog: blog/index.md
+
 theme:
   name: material
   icon:

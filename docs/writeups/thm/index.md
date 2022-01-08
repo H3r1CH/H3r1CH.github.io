@@ -1,1 +1,3 @@
-THM index.md
+![TryHackMe](../../images/tryhackme.png)
+
+---
