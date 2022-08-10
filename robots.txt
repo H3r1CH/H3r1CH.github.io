@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://H3r1CH.github.io/sitemap.xml
