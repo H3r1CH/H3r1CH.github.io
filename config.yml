@@ -1,4 +1,92 @@
-baseURL: http://example.org/
+baseURL: https://H3r1CH.github.io/
 languageCode: en-us
 title: My New Hugo Site
 theme: "PaperMod"
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+# googleAnalytics: UA-123-45
+
+minify:
+    disableXML: true
+    # minifyOutput: true
+
+languages:
+    en:
+        languageName: "English"
+        weight: 1
+        taxonomies:
+          category: categories
+          tag: tags
+          series: series
+        menu:
+            main:
+                - name: Archive
+                  url: archives
+                  weight: 5
+                - name: Search
+                  url: search/
+                  weight: 10
+                - name: Tags
+                  url: tags/
+                  weight: 10
+                - name: WiKi
+                  url: https://github.com/adityatelange/hugo-PaperMod/wiki/
+                - name: Discord
+                  url: https://discord.gg/ahpmTvhVmp
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON # is necessary
+
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    #description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+    #author: Theme PaperMod
+    # author: ["Me", "You"] # multiple authors
+
+    defaultTheme: dark  # light, dark
+    disableThemeToggle: false
+    ShowShareButtons: true
+    ShowReadingTime: true
+    # disableSpecial1stPost: true
+    displayFullLangName: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    ShowRssButtonInSectionTermList: true
+    ShowToc: true
+    # comments: false
+    images: ["papermod-cover.png"]
+
+    profileMode:
+        enabled: true
+        title: H3r1CH
+        imageUrl: ""
+        imageTitle: my image
+        # imageWidth: 120
+        # imageHeight: 120
+        buttons:
+            - name: Archives
+              url: archives
+            - name: Tags
+              url: tags
+
+    socialIcons:
+        - name: github
+          url: "https://github.com/H3r1CH"
+        - name: twitter
+          url: "https://twitter.com/H3r1CH_"
+        - name: Rss
+          url: "index.xml"
+        - name: hackthebox
+          url: "index.xml"
+        - name: tryhackme
+          url: "index.xml"
