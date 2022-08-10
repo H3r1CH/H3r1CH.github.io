@@ -32,6 +32,9 @@ languages:
                 - name: Search
                   url: search/
                   weight: 10
+                - name: Writeups
+                  url: writeups/
+                  weight: 10
                 - name: Tags
                   url: tags/
                   weight: 10
@@ -84,8 +87,6 @@ params:
           url: "https://github.com/H3r1CH"
         - name: twitter
           url: "https://twitter.com/H3r1CH_"
-        - name: Rss
-          url: "index.xml"
         - name: hackthebox
           url: "index.xml"
         - name: tryhackme
