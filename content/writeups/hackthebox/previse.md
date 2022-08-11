@@ -4,8 +4,11 @@ url: "/writeups/hackthebox/previse/"
 summary: previse
 tags:
 - hackthebox
-- windows
+- linux
+- idor
 ---
+
+![Previse](/Previse.png)
 
 ## Scanning
 
@@ -14,6 +17,8 @@ Started with an `nmap` scan:
 ```bash
 nmap <IP>
 ```
+
+## Enumeration
 
 And look what we found
 

@@ -38,10 +38,6 @@ languages:
                 - name: Tags
                   url: tags/
                   weight: 10
-                - name: WiKi
-                  url: https://github.com/adityatelange/hugo-PaperMod/wiki/
-                - name: Discord
-                  url: https://discord.gg/ahpmTvhVmp
 
 outputs:
     home:
@@ -51,8 +47,8 @@ outputs:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    #description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-    #author: Theme PaperMod
+    description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
+    author: Theme PaperMod
     # author: ["Me", "You"] # multiple authors
 
     defaultTheme: dark  # light, dark
@@ -88,6 +84,6 @@ params:
         - name: twitter
           url: "https://twitter.com/H3r1CH_"
         - name: hackthebox
-          url: "index.xml"
+          url: "https://app.hackthebox.com/profile/105517"
         - name: tryhackme
-          url: "index.xml"
+          url: "https://tryhackme.com/p/H3r1CH"
