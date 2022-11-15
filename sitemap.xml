@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://H3r1CH.github.io/writeups/tryhackme/agent_t/</loc>
+  </url><url>
     <loc>https://H3r1CH.github.io/archives/</loc>
   </url><url>
     <loc>https://H3r1CH.github.io/categories/</loc>
@@ -20,6 +22,8 @@
   </url><url>
     <loc>https://H3r1CH.github.io/</loc>
   </url><url>
+    <loc>https://H3r1CH.github.io/tags/php/</loc>
+  </url><url>
     <loc>https://H3r1CH.github.io/writeups/hackthebox/previse/</loc>
   </url><url>
     <loc>https://H3r1CH.github.io/search/</loc>
@@ -28,9 +32,9 @@
   </url><url>
     <loc>https://H3r1CH.github.io/tags/</loc>
   </url><url>
-    <loc>https://H3r1CH.github.io/writeups/tryhackme/test/</loc>
-  </url><url>
     <loc>https://H3r1CH.github.io/tags/tomcat/</loc>
+  </url><url>
+    <loc>https://H3r1CH.github.io/tags/tryhackme/</loc>
   </url><url>
     <loc>https://H3r1CH.github.io/writeups/tryhackme/</loc>
   </url><url>

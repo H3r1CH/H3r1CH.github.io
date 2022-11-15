@@ -11,12 +11,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://H3r1CH.github.io/writeups/tryhackme/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Test</title>
-      <link>https://H3r1CH.github.io/writeups/tryhackme/test/</link>
+      <title>Agent T</title>
+      <link>https://H3r1CH.github.io/writeups/tryhackme/agent_t/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://H3r1CH.github.io/writeups/tryhackme/test/</guid>
-      <description>test</description>
+      <guid>https://H3r1CH.github.io/writeups/tryhackme/agent_t/</guid>
+      <description>agent t</description>
     </item>
     
   </channel>
