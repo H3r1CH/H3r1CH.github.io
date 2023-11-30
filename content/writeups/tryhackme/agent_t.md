@@ -1,14 +1,14 @@
 ---
 title: "Agent T"
 url: "/writeups/tryhackme/agent_t/"
-summary: dreaming
+summary: agent t
 tags:
 - tryhackme
 - linux
 - php
 ---
 
-![Agent T](/dreaming.png)
+![Agent T](/htb-agent-t.png)
 
 ## Scanning
 ### nmap

